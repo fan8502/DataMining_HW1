@@ -77,18 +77,21 @@ For k = 2 To 2001
             totalTwo = totalTwo + CDbl(fileArray(k, i))
             XTwo = totalTwo / 40
         End If
+        
     Next i
+    
     
     For i = 1 To 62
         If fileArray(1, i) = "1" Then
             squOne = squOne + CDbl((fileArray(k, i) - XOne) ^ 2)
         Else
-            squTwo = squTwo + CDbl((fileArray(k, i) - XOne) ^ 2)
+            squTwo = squTwo + CDbl((fileArray(k, i) - XTwo) ^ 2)
         End If
     Next i
+    
     SOne = squOne / (22 - 1)
     STwo = squTwo / (40 - 1)
-    tvalue = (XOne - XTwo) / Sqr((SOne ^ 2) / 22 + (STwo ^ 2) / 40)
+    tvalue = (XOne - XTwo) / Sqr(SOne / 22 + STwo / 40)
     
     tArray(k) = tvalue
     tArrayIndex(k) = k - 1
